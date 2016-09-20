@@ -3,20 +3,22 @@ var PropTypes = React.PropTypes;
 var Materialize = require('react-materialize');
 var Card = Materialize.Card;
 var CardTitle = Materialize.CardTitle;
+var Collection = Materialize.Collection;
+var CollectionItem = Materialize.CollectionItem;
 // var Table = Materialize.Table;
 
 function UserDetails(user){
   return(
     <div>
-      <Card className='small'
+      <Card className='large'
         header={<CardTitle image={user.info.avatar_url}>{user.info.login}</CardTitle>}>
-        {!! user.score && <li>{user.info.score}</li>}
-        {user.info.name && <li>{user.info.name}</li>}
-        {user.info.location && <li>{user.info.location}</li>}
-        {user.info.company && <li>{user.info.name}</li>}
-        <li>Followers: {user.info.followers}</li>
-        <li>Following: {user.info.following}</li>
-        <li>Public Repos: {user.info.public_repos}</li>
+          {!!user.score && <CollectionItem>Score: {user.score}</CollectionItem>}
+          {user.info.name && <CollectionItem>Name: {user.info.name}</CollectionItem>}
+          {user.info.location && <CollectionItem>Location: {user.info.location}</CollectionItem>}
+          {user.info.company && <CollectionItem>{user.info.name}</CollectionItem>}
+          <CollectionItem>Followers: {user.info.followers}</CollectionItem>
+          <CollectionItem>Following: {user.info.following}</CollectionItem>
+          <CollectionItem>Public Repos: {user.info.public_repos}</CollectionItem>
       </Card>
     </div>
   )

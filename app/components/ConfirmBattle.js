@@ -8,6 +8,7 @@ var Button = Materialize.Button;
 var Row = Materialize.Row;
 var UserDetails = require('./UserDetails');
 var UserDetailsWrapper = require('./UserDetailsWrapper');
+var MainContainer = require('./MainContainer');
 
 function puke(object){
   return(
@@ -18,7 +19,7 @@ function puke(object){
 function ConfirmBattle(props){
   return props.isLoading === true
   ? <p> Loading </p>
-  : <Col s={12} className="center-align">
+  : <MainContainer>
       <h1> Confirm Players</h1>
         <Row>
         <Col s={10} className="offset-s1">
@@ -44,7 +45,7 @@ function ConfirmBattle(props){
           </Link>
         </Col>
       </Col>
-  </Col>
+  </MainContainer>
 }
 
 ConfirmBattle.propTypes = {
